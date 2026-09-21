@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { usePortfolioStore } from '@/store/usePortfolioStore';
 import { calculateMonthlyStats, formatCurrency, formatUsd } from '@/lib/calculations';
-import { Edit2, Check, X, Wallet, Target } from 'lucide-react';
+import { Edit2, Check, X } from 'lucide-react';
 
 interface SummaryBarProps {
   onOpenExistingPortfolioModal?: () => void;
@@ -44,12 +44,9 @@ export const SummaryBar: React.FC<SummaryBarProps> = ({ onOpenExistingPortfolioM
         title="Varlık bazlı bakiyeleri düzenlemek için tıklayın"
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <Wallet className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
-              Mevcut Portföy
-            </span>
-          </div>
+          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
+            Mevcut Portföy
+          </span>
 
           <span className="text-xs font-semibold text-[var(--text-muted)] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 flex items-center gap-1 transition-colors">
             <Edit2 className="w-3 h-3" />
@@ -74,12 +71,9 @@ export const SummaryBar: React.FC<SummaryBarProps> = ({ onOpenExistingPortfolioM
       {/* 2. KART: Aylık Hedef Bütçe */}
       <div className="clean-card p-4 sm:p-5 flex flex-col justify-between space-y-2.5 group hover:border-blue-500/40 transition-all">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <Target className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
-              Aylık Bütçe
-            </span>
-          </div>
+          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
+            Aylık Bütçe
+          </span>
 
           {!isEditingBudget && (
             <button
@@ -148,12 +142,9 @@ export const SummaryBar: React.FC<SummaryBarProps> = ({ onOpenExistingPortfolioM
 
       {/* 3. KART: Gerçekleşen Alımlar */}
       <div className="clean-card p-4 sm:p-5 flex flex-col justify-between space-y-2.5 hover:border-emerald-500/40 transition-all">
-        <div className="flex items-center gap-1.5">
-          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
-            Bu Ay Alınan
-          </span>
-        </div>
+        <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
+          Bu Ay Alınan
+        </span>
 
         <div>
           <div className="text-2xl sm:text-[26px] font-extrabold text-emerald-600 dark:text-emerald-400 font-mono-num tracking-tight">

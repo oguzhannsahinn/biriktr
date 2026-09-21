@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Yatırımım - Kişisel Finans & Portföy Disiplini Dashboard',
+  title: 'biriktr - Kişisel Finans & Portföy Disiplini Dashboard',
   description:
-    'Aylık tasarruf takibi, 5 ana varlık sınıfı hedef tahsisi, interaktif checklist ve düşüş tamponu yönetim platformu.',
+    'Aylık tasarruf takibi, 5 ana varlık sınıfı hedef tahsisi, interaktif checklist ve dip alım stratejisi yönetim platformu.',
 };
 
 export default function RootLayout({

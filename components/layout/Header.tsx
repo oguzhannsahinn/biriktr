@@ -29,48 +29,45 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBufferModal }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Sol: Logo & Canlı Piyasa Fiyatları */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
-              <div className="w-3 h-3 rounded-full bg-emerald-500" />
-            </div>
-            <div>
-              <span className="text-base font-bold tracking-tight text-[var(--text-main)]">Yatırımım</span>
-            </div>
+          <div className="flex items-center">
+            <span className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--text-main)] select-none">
+              birik<span className="text-emerald-500">tr</span>
+            </span>
           </div>
 
           {/* Canlı Kurlar (USD & Gram Altın) */}
           <div className="hidden md:flex items-center gap-2 text-xs font-mono-num pl-3 border-l border-[var(--border-main)]">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-700 dark:text-blue-400 font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-              USD: {usdTryRate.toFixed(2)} ₺
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-main)] text-[var(--text-secondary)]">
+              <span className="text-[var(--text-muted)] text-[11px]">USD</span>
+              <span className="font-semibold text-[var(--text-main)]">{usdTryRate.toFixed(2)} ₺</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              Gr. Altın: {Math.round(goldGramRate).toLocaleString('tr-TR')} ₺
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-main)] text-[var(--text-secondary)]">
+              <span className="text-[var(--text-muted)] text-[11px]">Gr. Altın</span>
+              <span className="font-semibold text-[var(--text-main)]">{Math.round(goldGramRate).toLocaleString('tr-TR')} ₺</span>
             </span>
           </div>
         </div>
 
         {/* Sağ: Aksiyonlar */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
 
-          {/* Düşüş Tamponu */}
+          {/* Dip Stratejisi */}
           <button
             onClick={onOpenBufferModal}
-            className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 border border-cyan-300 dark:border-cyan-500/30 transition-colors cursor-pointer"
-            title="Düşüş Tamponu (%30 Likit Fon Kullanım Rehberi)"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-main)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-main)] transition-colors cursor-pointer shadow-xs"
+            title="Dip Stratejisi (%30 Likit Fon Alım Rehberi)"
           >
-            <ShieldAlert className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-            <span className="hidden sm:inline">Düşüş Tamponu</span>
+            <ShieldAlert className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+            <span className="hidden sm:inline">Dip Stratejisi</span>
           </button>
 
           {/* Dönem Seçici */}
-          <div className="relative flex items-center bg-[var(--bg-surface)] border border-[var(--border-main)] rounded-xl px-3 py-1.5 text-sm shadow-xs">
-            <Calendar className="w-4 h-4 text-[var(--text-muted)] mr-2" />
+          <div className="relative flex items-center bg-[var(--bg-surface)] border border-[var(--border-main)] rounded-lg px-2.5 py-1 text-xs shadow-xs">
+            <Calendar className="w-3.5 h-3.5 text-[var(--text-muted)] mr-1.5" />
             <select
               value={currentMonthId}
               onChange={(e) => selectMonth(e.target.value)}
-              className="bg-transparent text-sm font-semibold text-[var(--text-main)] outline-none pr-5 cursor-pointer appearance-none"
+              className="bg-transparent text-xs font-semibold text-[var(--text-main)] outline-none pr-4 cursor-pointer appearance-none"
             >
               {availableMonths.map((mId) => {
                 const log = monthlyLogs[mId];
@@ -81,28 +78,28 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBufferModal }) => {
                 );
               })}
             </select>
-            <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] pointer-events-none absolute right-2.5" />
+            <ChevronDown className="w-3 h-3 text-[var(--text-muted)] pointer-events-none absolute right-2" />
           </div>
 
           {/* Yeni Ay */}
           <button
             onClick={() => setIsAddingMonth(!isAddingMonth)}
-            className="p-2 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-main)] transition-colors cursor-pointer shadow-xs"
+            className="p-1.5 rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-main)] transition-colors cursor-pointer shadow-xs"
             title="Yeni Ay Aç"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-3.5 h-3.5" />
           </button>
 
           {/* Tema Butonu */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-main)] transition-colors cursor-pointer shadow-xs ml-0.5"
+            className="p-1.5 rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] border border-[var(--border-main)] transition-colors cursor-pointer shadow-xs"
             title={theme === 'dark' ? 'Beyaz Temaya Geç' : 'Koyu Temaya Geç'}
           >
             {theme === 'dark' ? (
-              <Sun className="w-4 h-4 text-amber-400" />
+              <Sun className="w-3.5 h-3.5 text-amber-400" />
             ) : (
-              <Moon className="w-4 h-4 text-slate-700" />
+              <Moon className="w-3.5 h-3.5 text-slate-700" />
             )}
           </button>
         </div>

@@ -43,7 +43,7 @@ export const BufferModal: React.FC<BufferModalProps> = ({ isOpen, onClose }) => 
           </div>
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-[var(--text-main)]">
-              Düşüş Tamponu & Acil Alım Cephanesi
+              Dip Stratejisi & Alım Cephanesi
             </h3>
             <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
               Kullanılabilir Likit Rezerv (%35):{' '}

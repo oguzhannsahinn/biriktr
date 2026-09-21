@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { usePortfolioStore } from '@/store/usePortfolioStore';
 import { calculateCompoundProjection, formatCurrency } from '@/lib/calculations';
-import { Sparkles, SlidersHorizontal, Info } from 'lucide-react';
+import { SlidersHorizontal, Info } from 'lucide-react';
 
 export const CompoundGrowthCard: React.FC = () => {
   const {
@@ -31,12 +31,9 @@ export const CompoundGrowthCard: React.FC = () => {
     <div className="clean-card p-5 space-y-4">
       {/* 1. Tek Satır Başlık */}
       <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-          <h4 className="text-sm font-bold text-[var(--text-main)] uppercase tracking-wider whitespace-nowrap">
-            Bileşik Büyüme Simülasyonu
-          </h4>
-        </div>
+        <h4 className="text-sm font-bold text-[var(--text-main)] uppercase tracking-wider whitespace-nowrap">
+          Bileşik Büyüme Simülasyonu
+        </h4>
         <button
           onClick={() => setShowEdit(!showEdit)}
           className="text-[var(--text-muted)] hover:text-[var(--text-main)] p-1 rounded-lg cursor-pointer transition-colors"

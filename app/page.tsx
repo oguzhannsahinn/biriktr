@@ -162,7 +162,7 @@ export default function DashboardPage() {
 
       {/* Footer */}
       <footer className="border-t border-[var(--border-subtle)] py-5 text-center text-xs text-[var(--text-muted)] font-medium">
-        Yatırımım • Finansal Portföy Disiplini
+        biriktr • Finansal Portföy Disiplini
       </footer>
     </div>
   );
